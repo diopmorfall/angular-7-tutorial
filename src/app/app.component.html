@@ -355,7 +355,11 @@
     <h2 (click)="clicked($event)">Resources</h2>
     <!--* event binding, from here to the component ts -->
 
-    <app-counter (limitReached)="handleLimitReached()"></app-counter>
     <!--* (event on the child => app-counter)="handler on the parent component => app-root"-->
+    <app-counter *ngFor="let c of counters" (limitReached)="handleLimitReached($event)" [value]="c"></app-counter>
+    <!--? $event allows us to take everything as a parameter (here the ILimitReached object) -->
+    <!--* ([child property name]) = "parent method/value "-->
+    <!--? ngFor works with let; let element of array, creates a new element for each iteration -->
 
+    <app-users-list></app-users-list>
 <router-outlet></router-outlet>

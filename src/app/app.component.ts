@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ILimitReached } from './interfaces/limit-reached.interface';
 
 @Component({
 	selector: 'app-root',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+    counters = [5, 7, 0];
 	title = 'Worororororo'; //* property binding - interpolation
 	//* unidirectional passing data, from the component here to the html template
 	
@@ -22,7 +24,8 @@ export class AppComponent {
 		alert("Hai cliccato " + event.target.tagName);
 	}
 
-    handleLimitReached(){
-        alert("Maximum limit reached");
+    handleLimitReached(p: ILimitReached){
+        //? I  take an instance of the interface object we passed to it
+        console.log(p);
     }
 }
