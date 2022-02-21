@@ -361,5 +361,6 @@
     <!--* ([child property name]) = "parent method/value "-->
     <!--? ngFor works with let; let element of array, creates a new element for each iteration -->
 
-    <app-users-list></app-users-list>
+    <app-users-list *ngIf="show"></app-users-list>
+    <!--* this way, the component it created from scratch and deleted regularly -->
 <router-outlet></router-outlet>

@@ -16,5 +16,6 @@
         <tr app-user-list-details *ngFor="let u of users" [user]="u" (deleteUser)="deleteUser($event)"></tr>
         <!--* we make the tr behave as a component -->
         <!--* app-user-list-details is used as an html attribute, that allows us to access the object -->
+        <!--? ngFor is a structural directive (changes the DOM and has no view)-->
     </tbody>
 </table>

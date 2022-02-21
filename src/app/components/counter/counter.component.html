@@ -1,6 +1,7 @@
 <div class="container">
     <button (click)="handleCounter(true)">+</button>
-    <p class="value">{{ value }}</p>
+    <p class="value" *ngIf="value % 2 == 0">{{ value }}</p>
+    <!--* structural directive, because it's affecting the dom (true => the element is created) -->
     <button (click)="handleCounter(false)">-</button>
     <!--* (event fired by the child)="handler on the parent element/component"-->
 </div>

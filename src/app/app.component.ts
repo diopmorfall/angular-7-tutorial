@@ -11,9 +11,10 @@ export class AppComponent {
 	title = 'Worororororo'; //* property binding - interpolation
 	//* unidirectional passing data, from the component here to the html template
 	
-
+    show: boolean = false;
 	constructor(){
 		setTimeout(() => this.title = 'Zehahahaha', 5000);
+		setInterval(() => this.show = !this.show, 2000);
 	}
 
 	public changeTitle(){
