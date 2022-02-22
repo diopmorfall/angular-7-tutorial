@@ -14,6 +14,7 @@ export class UsersListComponent implements OnInit {
         new User(3, 'Killer', 'Kidd Pirates', false, 1_850_000_000),
         new User(4, "Shanks", "Red Haired Pirates", false, 4_064_000_000)
     ];
+
 	constructor() { 
         console.log("New instance created");
     }

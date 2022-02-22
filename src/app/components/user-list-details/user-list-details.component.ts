@@ -7,9 +7,8 @@ import { User } from 'src/app/models/user';
     templateUrl: './user-list-details.component.html',
     styleUrls: ['./user-list-details.component.scss']
 })
-export class UserListDetailsComponent implements OnInit {
+export class UserListDetailsComponent implements OnInit { //? OnInit class is required to use ngOnInit()
 
-    //@Input() name: string = '';
     @Input() user: User = new User(5, "Roronoa Zoro", "Straw Hats Pirates", false, 2_800_000_000);
     @Output() deleteUser: EventEmitter<number> = new EventEmitter();
     constructor() { }

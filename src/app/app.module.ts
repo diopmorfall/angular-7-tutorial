@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { UserListDetailsComponent } from './components/user-list-details/user-list-details.component';
+import { HighlightDirective } from './components/directives/highlight.directive';
 
 @NgModule({
-    declarations: [
+    declarations: [ //* components, pipes and directives declared here
         AppComponent,
         CounterComponent,
         UsersListComponent,
-        UserListDetailsComponent
+        UserListDetailsComponent,
+        HighlightDirective
     ],
     imports: [
         BrowserModule,
