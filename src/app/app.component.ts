@@ -14,7 +14,7 @@ export class AppComponent {
     show: boolean = true;
 	constructor(){
 		setTimeout(() => this.title = 'Zehahahaha', 5000);
-		//setInterval(() => this.show = !this.show, 2000);
+		// setInterval(() => this.show = !this.show, 2000);
 	}
 
 	public changeTitle(){

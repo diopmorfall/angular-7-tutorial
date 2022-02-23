@@ -1,6 +1,6 @@
 class OldUser{
     //private _id: number;
-    //* with readonly we can make a property kinda private
+    //* with readonly we can make a property read only (kinda private)
     public readonly id: number;
     public name: string;
     public crew: string;
@@ -24,8 +24,8 @@ export class User{
     constructor(
         public readonly id: number,
         public name: string,
-        public crew: string,
-        public hasDevilFruit: boolean,
-        public bounty: number
+        public email: string,
+        public phone: string,
+        public website: string
     ){}
 }

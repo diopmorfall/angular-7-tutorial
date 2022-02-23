@@ -7,6 +7,9 @@ import { CounterComponent } from './components/counter/counter.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { UserListDetailsComponent } from './components/user-list-details/user-list-details.component';
 import { HighlightDirective } from './components/directives/highlight.directive';
+import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
     declarations: [ //* components, pipes and directives declared here
@@ -14,13 +17,24 @@ import { HighlightDirective } from './components/directives/highlight.directive'
         CounterComponent,
         UsersListComponent,
         UserListDetailsComponent,
-        HighlightDirective
+        HighlightDirective,
+        LoginComponent
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        HttpClientModule
     ],
-    providers: [],
+    providers: [
+        //* UserService, manually registering the service does the same thing as below
+        /*
+        { //* manual registering done until Angular 6
+            provide: UserService,
+            useClass: UserService
+        }
+        */
+       //? @Injectable({providedIn: 'root'}) from Angular 6 => automatically registered easily
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
