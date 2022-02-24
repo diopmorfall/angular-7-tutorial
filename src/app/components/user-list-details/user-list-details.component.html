@@ -1,8 +1,8 @@
 <td>{{ user.id }}</td>
 <td>{{ user.name }}</td>
-<td>{{ user.email }}</td>
+<td>{{ user.email | lowercase }}</td>
 <td>{{ user.phone }}</td>
-<td>{{ user.website | uppercase}}</td>
+<td>{{ user.website | uppercase }}</td>
 <td>
     <button type="button" (click)="delete(user)">Delete</button>
 </td>

@@ -1,0 +1,27 @@
+form{
+    height: 200px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+div{
+    width: 60%;
+    margin: auto;
+
+    p{
+        color: red;
+    }
+}
+
+button{
+    width: 30%;
+    margin: auto;
+}
+
+input{
+    caret-color: lime;
+}
+
+

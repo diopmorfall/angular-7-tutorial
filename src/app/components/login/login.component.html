@@ -1,1 +1,29 @@
-<p>login works!</p>
+<h1>Login</h1>
+<!--* ngSubmit is the event that'll fire when we submit it -->
+<form (ngSubmit)="handleLogin(f)" #f="ngForm">
+    <!--* I can declare a variable and use it (#f) -->
+    <div>
+        <label>email:</label><!--? angular needs the name field -->
+        <input type="email" name="email" [(ngModel)]="email" #e="ngModel" required email>
+        <!--* #e="ngModel" is a reference template variable: takes the object representing the input field -->
+        <!--? yes, also the form fields can be stored as object; we can use it to make controls -->
+        <div *ngIf="e.touched && e.invalid" class="error">
+            <!--* check if the user interacted with the form and it's invalid, then we check each case -->
+            <!--? each control is executed immediately, they react to each change -->
+            <p *ngIf="e.hasError('required')">Required field</p>
+            <p *ngIf="e.hasError('email')">Email not valid</p>
+        </div>
+    </div>
+    <!--? [(ngModel)] kinda is the fusion of property and event bindings -->
+    <div>
+        <label>password:</label>
+        <!--? from the template to the component: updates automatically the properties in the latter  -->
+        <!--? minlength sets the minimum length of the value (good for passwords) -->
+        <input type="password" name="password" [(ngModel)]="password" #p="ngModel" required minlength="8">
+        <div *ngIf="p.touched && p.invalid" class="error">
+            <p *ngIf="p.hasError('required')">Required field</p>
+            <p *ngIf="p.hasError('minlength')">Password must have at least 8 characters</p>
+        </div>
+    </div>
+    <button>Login</button><!--? by default it's submit type, I can omit it -->
+</form>

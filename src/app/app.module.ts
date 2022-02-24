@@ -7,9 +7,9 @@ import { CounterComponent } from './components/counter/counter.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { UserListDetailsComponent } from './components/user-list-details/user-list-details.component';
 import { HighlightDirective } from './components/directives/highlight.directive';
-import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [ //* components, pipes and directives declared here
@@ -23,6 +23,7 @@ import { LoginComponent } from './components/login/login.component';
     imports: [
         BrowserModule,
         AppRoutingModule,
+        FormsModule, //? with this, our form tags get more angular functionalities
         HttpClientModule
     ],
     providers: [
