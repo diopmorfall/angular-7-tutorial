@@ -41,7 +41,7 @@ export class UsersListComponent implements OnInit, OnDestroy {
             // take(1), //? takes the first element
             // first(users => users && users.length > 0)
         ).subscribe(users => this.users = users)
-        //* subscribe will execute the callback once it'll receive the data stream
+        //* subscribe will execute the callback, to access the data stream
     }
 
     ngOnDestroy(): void { //? executed when we delete the component

@@ -24,7 +24,7 @@ export class UserService {
         return this._http.get<IUser[]>('https://jsonplaceholder.typicode.com/users',)
             //? <IUser> is a generic, sets the format we want to return (an array of IUser objects)
             //todo: always create an interface in this case, to structure the data
-            .pipe( //* the request returns an observable object
+            .pipe( //* the request returns an observable object, that stores the http response
             //? we can take various operators, and run them in the order we insert them
                 map(users => users.map(user => new User(user.id, user.name, user.email, user.phone, user.website)))
                     //? just transforming the information object that I'm receiving; in this case:

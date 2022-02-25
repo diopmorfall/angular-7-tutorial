@@ -1,0 +1,19 @@
+<h2>Todos</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <!--? this below makes the directive listen for any event that fires here -->
+            <!--* <th appHighlight [color]="'lime'">Name</th> -->
+            <!--? this way with selector and property separated -->
+            <th>User Id</th>
+            <!--? works also like this: <th [appHighlight]="'lime'">Name</th> -->
+            <!--? this way acts both as the selector and a property binded -->
+            <!--* invoked as a attribute -->
+            <th>Title</th>
+            <th>Completed</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr app-todo-details *ngFor="let todo of todos" [todo]="todo"></tr>
+</table>

@@ -16,7 +16,7 @@ export class IsLoggedGuard implements CanActivate {
         ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
         //* this returns an Observable, a Promise or a boolean
         this._loaderService.isLoading = true; //? while loading the content, we add the loading icon
-        //return false; //? and I can't access to the component that implements this guard
+        //return false; //? and Iìwe can't access to the component that implements this guard
         return new Promise(resolve => setTimeout(() => {
             this._loaderService.isLoading = false; //? and we remove it once we load everything
             resolve(true);

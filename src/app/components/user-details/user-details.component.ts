@@ -19,6 +19,7 @@ export class UserDetailsComponent implements OnInit {
     ngOnInit(): void {
         const id = Number(this._route.snapshot.paramMap.get('id'));
         this._userService.getUser(id).subscribe(user => this.user = user);
+        //! the only way to get the observable's data is to subscribe to it
     }
 
 }

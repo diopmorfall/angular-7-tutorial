@@ -1,0 +1,11 @@
+<ng-container *ngIf="todo">
+    <!--* ng-container isn't shown, so it's good for logical wrapping -->
+    <td>{{ todo.id }}</td>
+    <td>{{ todo.userId }}</td>
+    <td>{{ todo.title | titlecase }}</td>
+    <td>{{ todo.isCompleted }}</td>
+    <td><a [routerLink]="['/todos', todo.id]">Details</a></td>
+    <td>
+        <button type="button">Complete</button>
+    </td>
+</ng-container>

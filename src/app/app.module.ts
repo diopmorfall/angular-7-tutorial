@@ -14,6 +14,9 @@ import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { TodosListComponent } from './components/todos-list/todos-list.component';
+import { TodoDetailsComponent } from './components/todo-details/todo-details.component';
+import { TodoInfosComponent } from './components/todo-infos/todo-infos.component';
 
 @NgModule({
     declarations: [ //* components, pipes and directives declared here
@@ -26,7 +29,10 @@ import { LoaderComponent } from './components/loader/loader.component';
         HomeComponent,
         PageNotFoundComponent,
         UserDetailsComponent,
-        LoaderComponent
+        LoaderComponent,
+        TodosListComponent,
+        TodoDetailsComponent,
+        TodoInfosComponent
     ],
     imports: [
         BrowserModule,

@@ -4,6 +4,8 @@ import { CounterComponent } from './components/counter/counter.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { TodoInfosComponent } from './components/todo-infos/todo-infos.component';
+import { TodosListComponent } from './components/todos-list/todos-list.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { IsLoggedGuard } from './guards/is-logged.guard';
@@ -15,6 +17,12 @@ const routes: Routes = [{ //? one route for each component
 }, {
     component: UserDetailsComponent,
     path: 'users/:id' //* we can take a parameter now
+}, {
+    component: TodosListComponent,
+    path: 'todos'
+}, {
+    component: TodoInfosComponent,
+    path: 'todos/:id'
 }, {
     component: LoginComponent,
     path: 'login'

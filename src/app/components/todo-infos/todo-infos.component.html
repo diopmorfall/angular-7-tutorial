@@ -1,0 +1,5 @@
+<ng-container *ngIf="todo">
+    <h2>#{{ todo.id }} - {{ todo.title }}</h2>
+    <p><span>Owner user: </span>{{ todo.userId }}</p>
+    <p><span>Completed </span>{{ todo.isCompleted }}</p>
+</ng-container>
