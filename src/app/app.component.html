@@ -356,12 +356,24 @@
     <!--* event binding, from here to the component ts -->
 
     <!--* (event on the child => app-counter)="handler on the parent component => app-root"-->
+    <!--
     <app-counter *ngFor="let c of counters" (limitReached)="handleLimitReached($event)" [value]="c"></app-counter>
+    -->
     <!--? $event allows us to take everything as a parameter (here the ILimitReached object) -->
     <!--* ([child property name]) = "parent method/value "-->
     <!--? ngFor works with let; let element of array, creates a new element for each iteration -->
 
-    <app-login></app-login>
-    <app-users-list *ngIf="show"></app-users-list>
+    <!-- <app-login></app-login>
+    <app-users-list *ngIf="show"></app-users-list> -->
     <!--* this way, the component it created from scratch and deleted regularly -->
-<router-outlet></router-outlet>
+    <nav>
+        <!--? with regular href I'm doing a get request to our server; in single page apps is not optimal -->
+        <!--* that's why we use routerLink -->
+        <a routerLink="/">Home</a>
+        <a routerLink="/users">Users</a>
+        <a routerLink="/counter">Counter</a>
+        <a routerLink="/login">Login</a>
+    </nav>
+    <app-loader *ngIf="isLoading"></app-loader>
+<router-outlet></router-outlet> <!--? we'll show all the components after this selector -->
+<!--* when we click, we destroy the shown component and we display the requested one -->

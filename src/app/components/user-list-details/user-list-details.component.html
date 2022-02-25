@@ -1,10 +1,12 @@
-<td>{{ user.id }}</td>
-<td>{{ user.name }}</td>
-<td>{{ user.email | lowercase }}</td>
-<td>{{ user.phone }}</td>
-<td>{{ user.website | uppercase }}</td>
-<td>
-    <button type="button" (click)="delete(user)">Delete</button>
-</td>
-
-
+<ng-container *ngIf="user">
+    <!--* ng-container isn't shown, so it's good for logical wrapping -->
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.email | lowercase }}</td>
+    <td>{{ user.phone }}</td>
+    <td>{{ user.website | uppercase }}</td>
+    <td><a [routerLink]="['/users', user.id]">Details</a></td>
+    <td>
+        <button type="button" (click)="delete(user)">Delete</button>
+    </td>
+</ng-container>

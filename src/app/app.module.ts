@@ -10,6 +10,10 @@ import { HighlightDirective } from './components/directives/highlight.directive'
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './components/home/home.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
     declarations: [ //* components, pipes and directives declared here
@@ -18,12 +22,16 @@ import { FormsModule } from '@angular/forms';
         UsersListComponent,
         UserListDetailsComponent,
         HighlightDirective,
-        LoginComponent
+        LoginComponent,
+        HomeComponent,
+        PageNotFoundComponent,
+        UserDetailsComponent,
+        LoaderComponent
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule,
-        FormsModule, //? with this, our form tags get more angular functionalities
+        AppRoutingModule, //* our router module
+        FormsModule, //? to use forms with more angular functionalities
         HttpClientModule
     ],
     providers: [

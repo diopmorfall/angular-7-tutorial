@@ -9,7 +9,7 @@ import { User } from 'src/app/models/user';
 })
 export class UserListDetailsComponent implements OnInit, OnChanges { //? OnInit class is required to use ngOnInit()
 
-    @Input() user: User = new User(10, "Roronoa Zoro", "lost@strawhats.com", "+3475892633", "kyutoryu.com");
+    @Input() user: User | undefined;
     @Output() deleteUser: EventEmitter<number> = new EventEmitter();
     constructor() { }
 

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, filter } from 'rxjs/operators';
 import { IUser } from '../interfaces/user.interface';
 import { User } from '../models/user';
 //* makes our service injectable as a dependency
@@ -31,5 +31,10 @@ export class UserService {
                     //* I operate on the response array (users array), and for each item (user)
                     //* I create a new User object with its properties
             );
+    }
+
+    getUser(id: number){
+        return this._http.get<IUser>('https://jsonplaceholder.typicode.com/users/' + id)
+        .pipe(filter(user => user.id === id));
     }
 }

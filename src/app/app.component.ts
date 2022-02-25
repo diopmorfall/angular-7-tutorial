@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ILimitReached } from './interfaces/limit-reached.interface';
+import { LoaderService } from './services/loader.service';
 
 @Component({
 	selector: 'app-root',
@@ -12,10 +13,14 @@ export class AppComponent {
 	//* unidirectional passing data, from the component here to the html template
 	
     show: boolean = true;
-	constructor(){
+	constructor(private _loaderService: LoaderService){
 		setTimeout(() => this.title = 'Zehahahaha', 5000);
 		// setInterval(() => this.show = !this.show, 2000);
 	}
+
+    get isLoading(): boolean {
+        return this._loaderService.isLoading;
+    }
 
 	public changeTitle(){
 		this.title = 'Angular tutorial';
