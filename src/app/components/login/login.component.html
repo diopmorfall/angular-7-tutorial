@@ -2,9 +2,9 @@
 <!--* ngSubmit is the event that'll fire when we submit it -->
 <form (ngSubmit)="handleLogin(f)" #f="ngForm">
     <!--* I can declare a variable and use it (#f) -->
-    <div>
+    <div class="form-group">
         <label>email:</label><!--? angular needs the name field -->
-        <input type="email" name="email" [(ngModel)]="email" #e="ngModel" required email>
+        <input class="form-group" type="email" name="email" [(ngModel)]="email" #e="ngModel" required email>
         <!--* #e="ngModel" is a reference template variable: takes the object representing the input field -->
         <!--? yes, also the form fields can be stored as object; we can use it to make controls -->
         <div *ngIf="e.touched && e.invalid" class="error">
@@ -15,15 +15,15 @@
         </div>
     </div>
     <!--? [(ngModel)] kinda is the fusion of property and event bindings -->
-    <div>
+    <div class="form-group">
         <label>password:</label>
         <!--? from the template to the component: updates automatically the properties in the latter  -->
         <!--? minlength sets the minimum length of the value (good for passwords) -->
-        <input type="password" name="password" [(ngModel)]="password" #p="ngModel" required minlength="8">
+        <input class="form-group" type="password" name="password" [(ngModel)]="password" #p="ngModel" required minlength="8">
         <div *ngIf="p.touched && p.invalid" class="error">
             <p *ngIf="p.hasError('required')">Required field</p>
             <p *ngIf="p.hasError('minlength')">Password must have at least 8 characters</p>
         </div>
     </div>
-    <button>Login</button><!--? by default it's submit type, I can omit it -->
+    <button class="btn btn-primary">Login</button><!--? by default it's submit type, I can omit it -->
 </form>

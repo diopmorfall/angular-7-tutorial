@@ -1,19 +1,23 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { filter, first, Subject, Subscription, take, takeUntil } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
+import { UserListDetailsComponent } from '../user-list-details/user-list-details.component';
 
 @Component({
     selector: 'app-users-list',
     templateUrl: './users-list.component.html',
     styleUrls: ['./users-list.component.scss']
 })
-export class UsersListComponent implements OnInit, OnDestroy {
+export class UsersListComponent implements OnInit, AfterViewInit, AfterViewChecked, OnDestroy {
 
     private _usersSubscription!: Subscription; //? type: Subscription, but it doesn't work
     public users: User[] = [];
     private subs: Subscription[] = [];
     private obs$: Subject<any> = new Subject();
+    @ViewChildren('rows') trRows!: QueryList<UserListDetailsComponent>;
+    //* this decorator looks for the variable called rows in the template
+    //? angular creates QueryList instead of arrays of the same elements <specifying the type>
 
     constructor(private _userService: UserService) {
         //* now the service is instantiated, so we can access to it
@@ -42,6 +46,14 @@ export class UsersListComponent implements OnInit, OnDestroy {
             // first(users => users && users.length > 0)
         ).subscribe(users => this.users = users)
         //* subscribe will execute the callback, to access the data stream
+    }
+
+    ngAfterViewChecked(): void {
+        console.log("View checked", this.trRows)
+    }
+
+    ngAfterViewInit(): void {
+        console.log("View init", this.trRows);
     }
 
     ngOnDestroy(): void { //? executed when we delete the component

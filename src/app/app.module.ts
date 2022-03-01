@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,9 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { TodosListComponent } from './components/todos-list/todos-list.component';
 import { TodoDetailsComponent } from './components/todo-details/todo-details.component';
 import { TodoInfosComponent } from './components/todo-infos/todo-infos.component';
+import { LoggerService } from './services/logger.service';
+import { IdPipe } from './pipes/id.pipe';
+import { AntispamPipe } from './pipes/antispam.pipe';
 
 @NgModule({
     declarations: [ //* components, pipes and directives declared here
@@ -32,7 +35,9 @@ import { TodoInfosComponent } from './components/todo-infos/todo-infos.component
         LoaderComponent,
         TodosListComponent,
         TodoDetailsComponent,
-        TodoInfosComponent
+        TodoInfosComponent,
+        IdPipe,
+        AntispamPipe
     ],
     imports: [
         BrowserModule,
@@ -49,6 +54,11 @@ import { TodoInfosComponent } from './components/todo-infos/todo-infos.component
         }
         */
        //? @Injectable({providedIn: 'root'}) from Angular 6 => automatically registered easily
+        
+        { //* we can use a custom service and associate it with an existing token
+            provide: ErrorHandler, //? when angular will look for this
+            useClass: LoggerService //? it'll use this class
+        }
     ],
     bootstrap: [AppComponent]
 })
